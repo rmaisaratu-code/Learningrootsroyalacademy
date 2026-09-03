@@ -1,0 +1,154 @@
+/* Learning Roots Royal Academy — v10.1 enhancements
+   Scroll reveal, hero resize + animated strip, play-button overlay, social icons, CTA polish */
+
+/* ---------- respect reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+}
+
+/* ---------- scroll reveal (progressive enhancement only — see site.js) ---------- */
+.js-anim .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+.js-anim .reveal.in { opacity: 1; transform: none; }
+.js-anim .reveal-stagger.in .stage-card,
+.js-anim .reveal-stagger.in .card { animation: rise .6s ease both; }
+.js-anim .reveal-stagger.in .stage-card:nth-child(2),
+.js-anim .reveal-stagger.in .card:nth-child(2) { animation-delay: .09s; }
+.js-anim .reveal-stagger.in .stage-card:nth-child(3),
+.js-anim .reveal-stagger.in .card:nth-child(3) { animation-delay: .18s; }
+@keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+
+/* ---------- hero: shorter, with an animated strip beneath it ---------- */
+.hero { min-height: 46vh !important; }
+.hero-content { padding: 64px 0 40px !important; }
+.hero h1 { font-size: clamp(34px, 6vw, 60px) !important; }
+@media (max-width: 560px) {
+  .hero { min-height: 58vh !important; }
+  .hero-content { padding: 78px 0 48px !important; }
+}
+
+.hero-strip { position: relative; margin-top: -56px; z-index: 2; }
+.hero-strip .container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.hero-strip figure { margin: 0; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 45px rgba(17,27,82,.18); position: relative; height: 190px; background: var(--navy); }
+.hero-strip img { width: 100%; height: 100%; object-fit: cover; display: block; animation: kenburns 14s ease-in-out infinite alternate; }
+.hero-strip figure:nth-child(2) img { animation-duration: 17s; }
+.hero-strip figure:nth-child(3) img { animation-duration: 20s; }
+.hero-strip figure:nth-child(2) { transform: translateY(18px); }
+@keyframes kenburns { from { transform: scale(1) translate(0,0); } to { transform: scale(1.12) translate(-1.5%, -1.5%); } }
+.hero-strip figcaption { position: absolute; left: 12px; bottom: 10px; color: #fff; font-size: 12px; font-weight: 800; text-shadow: 0 2px 10px rgba(0,0,0,.5); }
+@media (max-width: 760px) {
+  .hero-strip .container { grid-template-columns: 1fr; }
+  .hero-strip figure { height: 160px; }
+  .hero-strip figure:nth-child(2) { transform: none; }
+  .hero-strip { margin-top: -40px; }
+}
+
+/* ---------- play-button overlay for video/social-linked media ---------- */
+.playable { position: relative; display: block; }
+.playable .play-badge {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  background: linear-gradient(180deg, rgba(17,27,82,0) 40%, rgba(17,27,82,.55) 100%);
+  opacity: 0; transition: opacity .25s ease;
+}
+.playable:hover .play-badge, .playable:focus-visible .play-badge { opacity: 1; }
+.play-badge .ring {
+  width: 58px; height: 58px; border-radius: 50%;
+  background: rgba(255,255,255,.92); display: grid; place-items: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,.35);
+  transform: scale(.85); transition: transform .25s ease;
+}
+.playable:hover .play-badge .ring, .playable:focus-visible .play-badge .ring { transform: scale(1); }
+.play-badge svg { width: 20px; height: 20px; fill: var(--navy); margin-left: 3px; }
+.play-badge .platform { position: absolute; right: 10px; bottom: 10px; background: rgba(255,255,255,.92); color: var(--navy); font-size: 11px; font-weight: 800; padding: 5px 10px; border-radius: 999px; }
+
+/* ---------- proper social icons ---------- */
+.social a { transition: transform .2s ease, background .2s ease; }
+.social a:hover { background: rgba(255,255,255,.14); transform: translateY(-2px); }
+
+/* ---------- small polish ---------- */
+.card, .stage-card { transition: transform .25s ease, box-shadow .25s ease; }
+.card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(17,27,82,.12); }
+.stage-card:hover img { transform: scale(1.05); }
+.stage-card img { transition: transform .5s ease; }
+.btn { transition: transform .2s ease, box-shadow .2s ease; }
+.btn:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(17,27,82,.18); }
+
+/* ---------- dashboard: tabs ---------- */
+.dtabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.dtabs button { border: 1px solid var(--line); background: #fff; color: var(--navy); font-weight: 700; font-size: 13px; padding: 9px 16px; border-radius: 999px; cursor: pointer; transition: all .2s ease; }
+.dtabs button.active, .dtabs button:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
+.dpane { display: none; }
+.dpane.active { display: block; animation: rise .35s ease both; }
+
+/* ---------- dashboard: filter bar ---------- */
+.filterbar { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+.filterbar select, .filterbar input[type="text"] { border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; font-size: 13px; font-family: inherit; background: #fff; color: var(--navy); }
+.filterbar .count { font-size: 12px; color: #6b7280; align-self: center; }
+
+/* ---------- dashboard: house badges ---------- */
+.house-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 800; padding: 4px 10px; border-radius: 999px; color: #fff; }
+.house-dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+
+/* ---------- dashboard: grade pill ---------- */
+.grade-pill { display: inline-block; min-width: 22px; text-align: center; font-weight: 900; font-size: 12px; padding: 3px 8px; border-radius: 8px; }
+.grade-A { background: #e4f6ea; color: #1f8a4c; }
+.grade-B { background: #eaf1ff; color: #2a5adf; }
+.grade-C { background: #fff6df; color: #a97a0a; }
+.grade-D { background: #ffece0; color: #c25a1e; }
+.grade-E { background: #ffe4e4; color: #c62828; }
+
+.pay-pill { font-size: 11px; font-weight: 800; padding: 3px 9px; border-radius: 999px; }
+.pay-Fully.pay-paid, .pay-fully-paid { background: #e4f6ea; color: #1f8a4c; }
+.pay-part-paid { background: #fff6df; color: #a97a0a; }
+.pay-outstanding { background: #ffe4e4; color: #c62828; }
+
+/* ---------- dashboard: rating meters ---------- */
+.rating-row { display: flex; align-items: center; gap: 10px; margin: 6px 0; font-size: 13px; }
+.rating-row .label { width: 190px; flex-shrink: 0; color: var(--navy); }
+.rating-meter { flex: 1; height: 8px; border-radius: 999px; background: #eef0f6; overflow: hidden; }
+.rating-meter span { display: block; height: 100%; background: var(--gold); border-radius: 999px; }
+.rating-row .val { width: 26px; text-align: right; font-weight: 800; color: var(--navy); }
+
+/* ---------- dashboard: comments ---------- */
+.comment-btn { background: none; border: 1px solid var(--line); border-radius: 999px; width: 28px; height: 28px; cursor: pointer; font-size: 13px; color: var(--navy); position: relative; }
+.comment-btn .n { position: absolute; top: -6px; right: -6px; background: var(--gold); color: var(--navy); font-size: 10px; font-weight: 900; border-radius: 999px; min-width: 15px; height: 15px; display: grid; place-items: center; padding: 0 3px; }
+.comment-panel { display: none; background: #fbfaf6; border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; margin-top: 8px; font-size: 13px; }
+.comment-panel.open { display: block; }
+.comment-item { padding: 8px 0; border-bottom: 1px dashed var(--line); }
+.comment-item:last-child { border-bottom: none; }
+.comment-item .who { font-weight: 800; color: var(--navy); font-size: 12px; }
+.comment-item .role-tag { font-size: 10px; text-transform: uppercase; letter-spacing: .05em; color: #6b7280; margin-left: 6px; }
+.comment-form { display: flex; gap: 8px; margin-top: 10px; }
+.comment-form input { flex: 1; border: 1px solid var(--line); border-radius: 10px; padding: 7px 10px; font-size: 13px; font-family: inherit; }
+.comment-form button { border: none; background: var(--navy); color: #fff; border-radius: 10px; padding: 7px 14px; font-size: 12px; font-weight: 700; cursor: pointer; }
+
+/* ---------- dashboard: editable score input ---------- */
+.score-input { width: 46px; border: 1px solid var(--line); border-radius: 8px; padding: 4px 6px; font-size: 12px; text-align: center; font-family: inherit; }
+.score-input:focus { outline: 2px solid var(--gold); border-color: var(--gold); }
+
+/* ---------- dashboard: mini cards for assignments/lesson plans/testimonials/transport ---------- */
+.mini-card { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 18px; margin-bottom: 14px; }
+.mini-card h4 { margin: 0 0 6px; color: var(--navy); }
+.mini-card .meta { font-size: 12px; color: #6b7280; margin-bottom: 8px; }
+.testimonial { background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 22px; }
+.testimonial p { font-style: italic; color: var(--navy); margin: 0 0 12px; }
+.testimonial .who { font-weight: 800; font-size: 13px; }
+.testimonial .role { font-size: 12px; color: #6b7280; }
+.testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 20px; }
+
+.route-card { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 18px; margin-bottom: 14px; }
+.route-stops { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 10px; font-size: 12px; }
+.route-stops span.stop { background: #f4f5fa; border-radius: 999px; padding: 5px 10px; }
+.route-stops .arrow { color: var(--gold); font-weight: 900; }
+
+.cal-list { display: grid; gap: 8px; }
+.cal-item { display: flex; align-items: center; gap: 12px; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px; font-size: 13px; }
+.cal-item .d { font-weight: 900; color: var(--navy); width: 92px; flex-shrink: 0; font-size: 12px; }
+.cal-tag { font-size: 10px; font-weight: 800; text-transform: uppercase; padding: 3px 8px; border-radius: 999px; }
+.cal-tag-Academic { background: #eaf1ff; color: #2a5adf; }
+.cal-tag-Inter-House { background: #fff6df; color: #a97a0a; }
+.cal-tag-Event { background: #e4f6ea; color: #1f8a4c; }
+
+@media (max-width: 760px) {
+  .dash-grid { grid-template-columns: 1fr !important; }
+  .rating-row .label { width: 130px; font-size: 12px; }
+}
