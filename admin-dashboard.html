@@ -1,0 +1,125 @@
+<!doctype html><html lang="en-NG"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#111b52"><meta name="description" content="&lt;section class=&quot;page-hero&quot;&gt;&lt;div class=&quot;container&quot;&gt;&lt;div class=&quot;crumb&quot;&gt;School Portal / Administration&lt;/div&gt;&lt;h1&gt;Whole-school view.&lt;/h1&gt;&lt;p&gt;Prototype data only. Production access must use secure authentication and a real database.&lt;/p&gt;&lt;/div&gt;&lt;/section&gt;&lt;section class=&quot;dashboard section compact&quot;&gt;&lt;div class=&quot;container dash-grid&quot;&gt;&lt;aside class=&quot;side&quot;&gt;&lt;strong&gt;Admin&lt;/strong&gt;&lt;a href=&quot;admin-dashboard.html&quot;&gt;Overview&lt;/a&gt;&lt;a href=&quot;curriculum.html&quot;&gt;Academics&lt;/a&gt;&lt;a href=&quot;classes.html&quot;&gt;Students&lt;/a&gt;&lt;a href=&quot;contact.html&quot;&gt;Staff&lt;/a&gt;&lt;a href=&quot;gallery.html&quot;&gt;Media&lt;/a&gt;&lt;/aside&gt;&lt;div&gt;&lt;div class=&quot;stats&quot;&gt;&lt;div class=&quot;stat&quot;&gt;&lt;span&gt;Students&lt;/span&gt;&lt;br&gt;&lt;b&gt;684&lt;/b&gt;&lt;/div&gt;&lt;div class=&quot;stat&quot;&gt;&lt;span&gt;Fees fully paid&lt;/span&gt;&lt;br&gt;&lt;b&gt;82%&lt;/b&gt;&lt;/div&gt;&lt;div class=&quot;stat&quot;&gt;&lt;span&gt;Staff present&lt;/span&gt;&lt;br&gt;&lt;b&gt;96%&lt;/b&gt;&lt;/div&gt;&lt;div class=&quot;stat&quot;&gt;&lt;span&gt;Clubs&lt;/span&gt;&lt;br&gt;&lt;b&gt;12&lt;/b&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;notice&quot;&gt;&lt;h3&gt;Finance overview&lt;/h3&gt;&lt;p&gt;JSS2: 28 fully paid • 7 part-paid • 2 outstanding&lt;/p&gt;&lt;p&gt;SS1: 31 fully paid • 5 part-paid • 1 outstanding&lt;/p&gt;&lt;/div&gt;&lt;div class=&quot;notice&quot;&gt;&lt;h3&gt;Learning &amp; staff oversight&lt;/h3&gt;&lt;p&gt;View teacher comments, parent feedback, learning outcomes, attendance, punctuality, missed classes and extracurricular assignments.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;"><title>Admin Dashboard | Learning Roots Royal Academy</title><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png"><link rel="stylesheet" href="assets/style.css"><link rel="stylesheet" href="assets/enhance.css"></head><body><div class="top"><div class="container"><span>Premier private education, open nationwide • Nursery, Primary & Secondary</span><span>0803 530 0033 • contact@learningrootsroyalacademy.org</span></div></div><header class="header"><div class="container nav"><a class="brand" href="index.html"><img src="assets/img/img_390e1c584a63.png" alt="Learning Roots Royal Academy logo"><div><strong>Learning Roots<br>Royal Academy</strong><small>Nurturing the Future</small></div></a><nav class="menu"><details><summary>About ▾</summary><div class="drop"><a href="about.html">Our Story</a><a href="founder.html">Founder & Chairman</a><a href="values.html">Vision, Mission & Values</a></div></details><details><summary>Academics ▾</summary><div class="drop"><a href="academics.html">Academic Overview</a><a href="curriculum.html">Curriculum</a><a href="subjects.html">Subjects</a><a href="classes.html">Classes & Divisions</a></div></details><details><summary>Student Life ▾</summary><div class="drop"><a href="student-life.html">Life at Learning Roots</a><a href="clubs.html">Clubs & Societies</a><a href="gallery.html">Gallery</a><a href="media.html">Media Centre</a></div></details><details><summary>Admissions ▾</summary><div class="drop"><a href="admissions.html">Why Learning Roots</a><a href="admission-process.html">Admission Process</a><a href="requirements.html">Requirements</a><a href="faq.html">FAQs</a></div></details><a class="portal" href="portal.html">School Portal</a></nav><button class="mobile-toggle" onclick="toggleNav()" aria-label="Open menu">☰</button></div><div class="mobile-nav" id="mobileNav"><details><summary>About</summary><div class="drop"><a href="about.html">Our Story</a><a href="founder.html">Founder & Chairman</a><a href="values.html">Vision, Mission & Values</a></div></details><details><summary>Academics</summary><div class="drop"><a href="academics.html">Academic Overview</a><a href="curriculum.html">Curriculum</a><a href="subjects.html">Subjects</a><a href="classes.html">Classes & Divisions</a></div></details><details><summary>Student Life</summary><div class="drop"><a href="student-life.html">Life at Learning Roots</a><a href="clubs.html">Clubs & Societies</a><a href="gallery.html">Gallery</a><a href="media.html">Media Centre</a></div></details><details><summary>Admissions</summary><div class="drop"><a href="admissions.html">Why Learning Roots</a><a href="admission-process.html">Admission Process</a><a href="requirements.html">Requirements</a><a href="faq.html">FAQs</a></div></details><a href="portal.html">School Portal</a><a href="contact.html">Contact</a></div></header><section class="page-hero"><div class="container"><div class="crumb">School Portal / Administration</div><h1>Whole-school view.</h1><p>Every student, every class, every naira accounted for — one dashboard for the whole school.</p></div></section><section class="dashboard section"><div class="container">
+<div class="dtabs" data-dtabs>
+<button class="active" data-tab="tab-overview">Overview</button>
+<button data-tab="tab-students">Students</button>
+<button data-tab="tab-staff">Staff & Timetables</button>
+<button data-tab="tab-curriculum">Curriculum & Lesson Plans</button>
+<button data-tab="tab-finance">Finance</button>
+<button data-tab="tab-calendar">Calendar</button>
+</div>
+
+<div class="dpane active" id="tab-overview">
+<div class="stats" id="admin-stats"></div>
+<div class="notice"><h3>Houses at a glance</h3><div id="admin-houses"></div></div>
+<div class="notice"><h3>Recent staff & parent notes</h3><div id="admin-recent-comments"></div></div>
+</div>
+
+<div class="dpane" id="tab-students">
+<p style="color:#6b7280;margin-bottom:14px">Full student register — filter by class, gender, age, house or grade. Payment status and comments are visible only to administration.</p>
+<div id="admin-student-table"></div>
+</div>
+
+<div class="dpane" id="tab-staff">
+<div class="table-wrap"><table class="table"><thead><tr><th>Teacher</th><th>Subjects</th><th>Classes</th><th>Form class</th><th>Role</th></tr></thead><tbody id="admin-staff-body"></tbody></table></div>
+</div>
+
+<div class="dpane" id="tab-curriculum">
+<h3 style="color:var(--navy)">Scheme of work</h3>
+<div id="admin-scheme"></div>
+<h3 style="color:var(--navy);margin-top:24px">Lesson plans</h3>
+<div id="admin-lesson-plans"></div>
+</div>
+
+<div class="dpane" id="tab-finance">
+<div class="stats" id="admin-finance-stats"></div>
+<div class="table-wrap" style="margin-top:16px"><table class="table"><thead><tr><th>Class</th><th>Fully paid</th><th>Part-paid</th><th>Outstanding</th></tr></thead><tbody id="admin-finance-body"></tbody></table></div>
+</div>
+
+<div class="dpane" id="tab-calendar">
+<div id="admin-calendar"></div>
+</div>
+
+</div></section>
+<script src="assets/data.js"></script>
+<script src="assets/dashboard.js"></script>
+<script>
+(function(){
+  var D = window.SCHOOL_DATA;
+
+  document.getElementById('admin-stats').innerHTML =
+    '<div class="stat"><span>Students</span><br><b>' + D.students.length + '</b></div>' +
+    '<div class="stat"><span>Staff</span><br><b>' + D.teachers.length + '</b></div>' +
+    '<div class="stat"><span>Fees fully paid</span><br><b>' + Math.round(D.students.filter(function(s){return s.payment==='Fully paid';}).length / D.students.length * 100) + '%</b></div>' +
+    '<div class="stat"><span>Houses</span><br><b>' + D.houses.length + '</b></div>';
+
+  var houseWrap = document.getElementById('admin-houses');
+  var housesHtml = '';
+  D.houses.forEach(function(h){
+    var count = D.students.filter(function(s){return s.house===h;}).length;
+    housesHtml += '<p style="margin:6px 0">' + LRRA_houseBadge(h) + ' &nbsp;' + count + ' students</p>';
+  });
+  houseWrap.innerHTML = housesHtml;
+
+  var recent = [];
+  D.students.forEach(function(s){ s.comments.forEach(function(c){ recent.push({s:s,c:c}); }); });
+  var recentHtml = recent.slice(0,6).map(function(r){
+    return '<p style="margin:6px 0"><b>' + r.c.author + '</b> <span style="color:#6b7280;font-size:12px">(' + r.c.role + ')</span> on <b>' + r.s.name + '</b> (' + r.s.class + '): ' + r.c.text + '</p>';
+  }).join('') || '<p style="color:#9aa0ab">No comments yet.</p>';
+  document.getElementById('admin-recent-comments').innerHTML = recentHtml;
+
+  LRRA_renderStudentTable({
+    container: document.getElementById('admin-student-table'),
+    students: D.students,
+    showPayment: true,
+    showHouse: true,
+    subjectCols: [],
+    showAverage: true,
+    canComment: true,
+    commentRole: 'Admin',
+    commentAuthor: 'School Administration',
+    commentPlaceholder: 'Add an administrative note...'
+  });
+
+  var staffBody = document.getElementById('admin-staff-body');
+  D.teachers.forEach(function(t){
+    staffBody.innerHTML += '<tr><td>' + t.name + '</td><td>' + t.subjects.join(', ') + '</td><td>' + t.classes.join(', ') + '</td><td>' + (t.form_class || '\u2014') + '</td><td>' + t.role + '</td></tr>';
+  });
+
+  var schemeWrap = document.getElementById('admin-scheme');
+  Object.keys(D.schemeOfWork).forEach(function(subj){
+    schemeWrap.innerHTML += '<div class="mini-card"><h4>' + subj + '</h4><ul style="margin:8px 0 0;padding-left:18px;color:#444">' +
+      D.schemeOfWork[subj].map(function(w){ return '<li>' + w + '</li>'; }).join('') + '</ul></div>';
+  });
+
+  var lpWrap = document.getElementById('admin-lesson-plans');
+  D.lessonPlans.forEach(function(lp){
+    var reviews = lp.review_comments.map(function(r){
+      return '<div class="comment-item"><span class="who">' + r.author + '</span><div>' + r.text + '</div><div style="color:#9aa0ab;font-size:11px">' + r.date + '</div></div>';
+    }).join('');
+    lpWrap.innerHTML += '<div class="mini-card"><h4>' + lp.subject + ' \u2014 ' + lp.topic + '</h4>' +
+      '<div class="meta">' + lp.class + ' \u00b7 ' + lp.week + '</div>' +
+      '<p><b>Objectives:</b> ' + lp.objectives + '</p><p><b>Materials:</b> ' + lp.materials + '</p>' +
+      '<p><b>Activities:</b> ' + lp.activities + '</p><p><b>Assessment:</b> ' + lp.assessment + '</p>' +
+      '<div class="comment-panel open" style="margin-top:10px"><b style="font-size:12px;color:var(--navy)">VP / Admin review</b>' + reviews + '</div></div>';
+  });
+
+  var finStats = document.getElementById('admin-finance-stats');
+  var fully = D.students.filter(function(s){return s.payment==='Fully paid';}).length;
+  var part = D.students.filter(function(s){return s.payment==='Part-paid';}).length;
+  var out = D.students.filter(function(s){return s.payment==='Outstanding';}).length;
+  finStats.innerHTML =
+    '<div class="stat"><span>Fully paid</span><br><b>' + fully + '</b></div>' +
+    '<div class="stat"><span>Part-paid</span><br><b>' + part + '</b></div>' +
+    '<div class="stat"><span>Outstanding</span><br><b>' + out + '</b></div>' +
+    '<div class="stat"><span>Collection rate</span><br><b>' + Math.round(fully/D.students.length*100) + '%</b></div>';
+
+  var finBody = document.getElementById('admin-finance-body');
+  D.classes.forEach(function(cls){
+    var cs = D.students.filter(function(s){return s.class===cls;});
+    finBody.innerHTML += '<tr><td>' + cls + '</td><td>' + cs.filter(function(s){return s.payment==='Fully paid';}).length + '</td><td>' + cs.filter(function(s){return s.payment==='Part-paid';}).length + '</td><td>' + cs.filter(function(s){return s.payment==='Outstanding';}).length + '</td></tr>';
+  });
+
+  LRRA_renderCalendar(document.getElementById('admin-calendar'));
+})();
+</script>
+<footer class="footer"><div class="container footer-grid"><div><img src="assets/img/img_390e1c584a63.png" alt="Learning Roots Royal Academy" style="width:64px;height:64px;object-fit:contain"><h3 style="margin-top:16px">Learning Roots Royal Academy</h3><p>A private school in Kofare, Jimeta, Yola, creating strong foundations for confident, capable young people.</p></div><div><h3>Explore</h3><a href="about.html">About</a><a href="academics.html">Academics</a><a href="student-life.html">Student Life</a><a href="admissions.html">Admissions</a></div><div><h3>Connect</h3><a href="gallery.html">Gallery</a><a href="media.html">Media Centre</a><a href="contact.html">Contact</a><a href="portal.html">School Portal</a></div><div><h3>Follow</h3><div class="social"><a aria-label="YouTube" href="https://www.youtube.com/@learningrootsroyalacademy" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.02 3.02 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.02 3.02 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.02 3.02 0 0 0 2.122 2.136C4.495 20.455 12 20.455 12 20.455s7.505 0 9.377-.505a3.02 3.02 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814ZM9.545 15.568V8.432L15.818 12l-6.273 3.568Z"/></svg></a><a aria-label="TikTok" href="https://www.tiktok.com/@learningrootsroyalacademy" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 5.82c-1.02-.9-1.6-2.16-1.66-3.62h-3.02v13.28c0 1.5-1.22 2.72-2.72 2.72s-2.72-1.22-2.72-2.72 1.22-2.72 2.72-2.72c.24 0 .48.03.7.09V9.72a5.94 5.94 0 0 0-.7-.04c-3.2 0-5.8 2.6-5.8 5.8s2.6 5.8 5.8 5.8 5.8-2.6 5.8-5.8V9.02a8.9 8.9 0 0 0 4.9 1.48V7.5a5.6 5.6 0 0 1-3.3-1.68Z"/></svg></a><a aria-label="Facebook" href="https://www.facebook.com/learningrootsroyalacademy" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.4 8.6h2.1V5.4c-.36-.05-1.6-.16-3.05-.16-3.02 0-5.09 1.9-5.09 5.4v2.83H6.1v3.6h3.26v9.13h3.62v-9.13h3.13l.5-3.6h-3.63v-2.47c0-1.04.28-1.75 1.76-1.75Z"/></svg></a><a aria-label="LinkedIn" href="https://www.linkedin.com/company/learningrootsroyalacademy" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 8.5H3.56v11.5h3.38V8.5ZM5.25 3.5a1.96 1.96 0 1 0 0 3.92 1.96 1.96 0 0 0 0-3.92ZM20.45 20V13.9c0-3.26-1.74-4.78-4.06-4.78a3.5 3.5 0 0 0-3.18 1.75V8.5H9.83c.04.95 0 11.5 0 11.5h3.38v-6.42c0-.34.02-.68.12-.93.28-.68.9-1.39 1.96-1.39 1.38 0 1.94 1.06 1.94 2.6V20h3.22Z"/></svg></a></div><p style="margin-top:16px">Kofare, Jimeta, Yola, Adamawa State, Nigeria<br><a href="tel:+2348035300033">0803 530 0033</a><br><a href="mailto:contact@learningrootsroyalacademy.org">contact@learningrootsroyalacademy.org</a></p></div></div><div class="container bottom"><span>© 2026 Learning Roots Royal Academy.</span><span>Admissions open nationwide & internationally</span></div></footer><div class="chat" id="chat"><div class="chat-head">Learning Roots FAQ</div><div class="chat-body"><button onclick="alert('Start on our Admissions page any time, or message us on WhatsApp — we reply fast!')">How do I enquire about admission?</button><button onclick="alert('The school is located in Kofare, Jimeta, Yola, Adamawa State.')">Where is the school?</button><button onclick="alert('Parents will receive secure portal credentials from the school.')">How does the parent portal work?</button></div></div><div class="float"><a class="wa" href="https://wa.me/2348035300033" target="_blank" aria-label="WhatsApp">✆</a><button class="faqbtn" onclick="document.getElementById('chat').classList.toggle('open')" aria-label="Frequently asked questions">?</button></div><script src="assets/site.js" defer></script></body></html>
