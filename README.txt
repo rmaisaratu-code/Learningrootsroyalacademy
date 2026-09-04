@@ -1,38 +1,50 @@
-LEARNING ROOTS ROYAL ACADEMY — v11
+LEARNING ROOTS ROYAL ACADEMY — v12
 
-Major additions since v10.1:
-- Fixed the school portal: Admin, Teacher and Parent dashboards are now fully built out
-  with role-based data and permissions (see below), replacing the placeholder pages.
-- assets/data.js: 100 sample students across JSS1/JSS2/SS1/SS2 (25 each), 6 sample
-  teachers, houses, assignments, scheme of work, lesson plans, calendar, transport
-  routes and parent testimonials — all demo data, editable in one place.
-- assets/dashboard.js: shared rendering engine (tabs, filters, editable scores,
-  per-student comment threads, house badges, rating meters, calendar, transport).
-- Admin dashboard: sees everything — all students (with payment status and average
-  grade), staff & timetables, curriculum/scheme of work/lesson plans (with VP review
-  comments), full finance breakdown by class, and the school calendar.
-- Teacher dashboard (demo: Mr. Ibrahim Sule, Mathematics): students they teach with
-  live-editable CA1/CA2/exam scores, an assignments tab (view + post new), scheme of
-  work, lesson plans with VP feedback, personal timetable and duty status, and the
-  calendar. No payment information shown.
-- Parent dashboard (demo: viewing one student): academic progress, house, behavioral/
-  activity ratings, calendar, a comment thread they can post to, and payment status
-  for their own child only. No other students or staff attendance shown.
-- House system (Yellow/Black/White/Green) with random assignment, shown on the
-  Student Life page and in both admin and teacher dashboards.
-- Calendar now includes inter-house Music & Dancing, Games and Debate competitions.
-- Illustrative school bus routes (Yola, Girei, within Jimeta) added to Student Life.
-- 5 parent testimonials added near the bottom of the About page.
-- Removed every remaining "prototype" label and dev-facing placeholder sentence.
-- Repositioned copy: no longer reads as Yola/Jimeta-only — open nationwide and
-  internationally.
-- Fixed a real cross-browser bug in the student-table renderer (a two-root HTML
-  fragment meant the table itself silently failed to render in every browser);
-  verified fixed by executing the actual JS in a headless engine, not just reading it.
-- Replaced a fragile DOM API (Range.createContextualFragment) with plain innerHTML
-  templating in three places for maximum compatibility.
+Fixes and additions since v11, based on comparing against the school's real
+existing website:
 
-Changes from v10 to v10.1 (photos/animations/social icons/etc.) are unchanged — see
-previous notes in project history.
+REAL CONTACT INFO (was fabricated placeholder data before — fixed sitewide,
+all 24 pages):
+- Phone: +234 816 867 3193 (was a fake number; the clickable tel: link had
+  ALSO been left pointing at the old fake number even after the visible text
+  was corrected earlier in this session — both are now fixed and match)
+- Email: info@learningrootsroyalacademy.com (was a fabricated .org address;
+  swapped to a professional address on the school's real domain rather than
+  a generic Gmail address)
+- Address: Plot Y.P30, Kofare, Jimeta, Yola, Adamawa State
 
-For desktop testing: python3 -m http.server 8080, then open http://localhost:8080/index.html
+SOCIAL MEDIA:
+- Added Instagram (5th icon) alongside Facebook, YouTube, TikTok, LinkedIn
+  in the footer on all 24 pages and on the Contact page
+- IMPORTANT: all 5 links are still placeholder URLs (@learningrootsroyalacademy
+  guesses). Swap in the real profile URLs before this goes live — do not ship
+  fake/dead social links the way the old site did.
+
+CONTACT PAGE:
+- Rebuilt with a real message form (name/email/subject/message) — note this
+  form does not send anywhere yet; it shows an honest message saying so when
+  submitted. Needs a form backend (e.g. Formspree) or a mailto fallback before
+  it's truly functional.
+- Social icons now match the full 5-platform footer set
+
+ABOUT PAGE:
+- Added a real achievements band: 98% pass rate in the school's first WAEC/NECO
+  exams, 100% JAMB admission rate for pioneer graduates
+- Added a leadership section for Director (Mrs Aishatu Amina), Managing
+  Director (Hajiya Fadimatu Raji), and Administrator (Mrs Ooye) — using
+  initials-avatar placeholders since their real photos weren't available at
+  usable resolution. Replace the avatar divs with real <img> photos once
+  those are supplied.
+
+ADMISSIONS / REQUIREMENTS PAGE:
+- Replaced generic bullet copy with the school's actual specific document
+  checklist (birth certificate, proof of address, immunization card, most
+  recent school report, 4 passport photos, guardian contact info)
+
+STILL OUTSTANDING:
+- Real social media URLs (waiting on these)
+- Real leadership photos (waiting on these)
+- Contact form needs a real backend to actually deliver messages
+- Custom email inbox (info@learningrootsroyalacademy.com) needs to be set up
+  with an email host (Google Workspace or Zoho Mail) — the address is now on
+  the site, but nothing receives mail there yet
