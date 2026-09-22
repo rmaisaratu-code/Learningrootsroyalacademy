@@ -1,6 +1,20 @@
 // Learning Roots Royal Academy — shared site behaviour
 function toggleNav(){document.getElementById('mobileNav').classList.toggle('open')}
 
+// Only one nav dropdown open at a time — closing siblings when a new one opens.
+(function(){
+  document.querySelectorAll('nav.menu details, .mobile-nav details').forEach(function(d){
+    d.addEventListener('toggle', function(){
+      if (!d.open) return;
+      var group = d.closest('nav, .mobile-nav');
+      if (!group) return;
+      group.querySelectorAll('details[open]').forEach(function(other){
+        if (other !== d) other.removeAttribute('open');
+      });
+    });
+  });
+})();
+
 // Scroll-reveal is a progressive enhancement: content is visible by default in the CSS,
 // and only hidden-then-faded-in once we're sure this browser can actually run the reveal.
 (function(){
