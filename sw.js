@@ -1,6 +1,6 @@
 // Learning Roots Royal Academy — minimal offline app-shell cache
-const CACHE = 'lrra-shell-v1';
-const SHELL = ['index.html', 'assets/style.css', 'assets/enhance.css', 'assets/site.js', 'icon-192.png', 'icon-512.png'];
+const CACHE = 'lrra-shell-v2';
+const SHELL = ['index.html', 'style.css', 'enhance.css', 'site.js', 'icon-192.png', 'icon-512.png'];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(SHELL)));

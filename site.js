@@ -3,13 +3,41 @@ function toggleNav(){document.getElementById('mobileNav').classList.toggle('open
 
 // Only one nav dropdown open at a time — closing siblings when a new one opens.
 (function(){
-  document.querySelectorAll('nav.menu details, .mobile-nav details').forEach(function(d){
+  document.querySelectorAll('nav.menu details, .mobile-nav details, .footer-grid details').forEach(function(d){
     d.addEventListener('toggle', function(){
       if (!d.open) return;
-      var group = d.closest('nav, .mobile-nav');
+      var group = d.closest('nav, .mobile-nav, .footer-grid');
       if (!group) return;
       group.querySelectorAll('details[open]').forEach(function(other){
         if (other !== d) other.removeAttribute('open');
+      });
+    });
+  });
+})();
+
+// Netlify forms: submit via fetch so the page never leaves and we can show
+// a proper success state instead of Netlify's default redirect. Uses FormData
+// directly (not urlencoded) so file uploads, like the Careers CV field, work.
+(function(){
+  document.querySelectorAll('form[data-netlify="true"]').forEach(function(form){
+    var successBox = document.getElementById(form.id + '-success');
+    var errorBox = document.getElementById(form.id + '-error');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      if (errorBox) errorBox.classList.remove('show');
+      form.classList.add('submitting');
+      fetch('/', { method: 'POST', body: new FormData(form) }).then(function(res){
+        form.classList.remove('submitting');
+        if (res.ok) {
+          form.reset();
+          form.classList.add('sent');
+          if (successBox) successBox.classList.add('show');
+        } else {
+          throw new Error('Submit failed');
+        }
+      }).catch(function(){
+        form.classList.remove('submitting');
+        if (errorBox) errorBox.classList.add('show');
       });
     });
   });
